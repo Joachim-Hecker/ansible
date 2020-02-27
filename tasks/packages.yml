@@ -3,3 +3,10 @@
   with_items:
     - htop
     - mc
+    - vlc
+
+- name: Install packages
+  pacman: name={{item}}
+  with_items:
+    - vlc
+    -
