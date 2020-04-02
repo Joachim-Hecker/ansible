@@ -4,21 +4,42 @@
 - name: Install psutil package
   apt: name=python-psutil
 
-- name: Copy wallpaper file
-  copy: src=files/wallpaper.jpg dest=/home/joachim/.wallpaper.jpg owner=joachim group=jay mode=600
+- name: Copy wallpaper files
+  copy: src=files/wallpaper/mojave_dynamic_{{ item }}.jpeg dest=/home/joachim/.wallpaper/mojave_dynamic_{{ item }}.jpeg owner=joachim group=joachim mode=600
+  with_items:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+- name: Copy wallpaper xml file
+  copy: src=files/dynamic/wallpaper.xml dest=/home/joachim/.wallpaper/wallpaper.xml
 
 - name: Set GNOME wallpaper
   become_user: joachim
-  dconf: key="/org/gnome/desktop/background/picture-uri" value="'file:///home/joachim/.wallpaper.jpg'"
+  dconf: 
+   - key="/org/gnome/desktop/background/picture-uri" value="'file:///home/joachim/.wallpaper/dynamic_wallpaper.xml'"
+   - key="/org/gnome/desktop/background/picture-options" value="'zoom'"
 
-- name: Copy lockscreenfile
-  become_user: joachim
-  copy: src=files/lockscreen.jpg dest=/home/joachim/.lockscreen.jpg owner=joachim group=jay mode=600
+#- name: Copy lockscreenfile
+#  become_user: joachim
+#  copy: src=files/lockscreen.jpg dest=/home/joachim/.lockscreen.jpg owner=joachim group=jay mode=600
+#
+#- name: Set lock screen background
+#  become_user: joachim
+#  dconf: key="/org/gnome/desktop/screensaver/picture-uri" value="'file:///home/joachim/.lockscreen.jpg'"
 
-- name: Set lock screen background
-  become_user: joachim
-  dconf: key="/org/gnome/desktop/screensaver/picture-uri" value="'file:///home/joachim/.lockscreen.jpg'"
-
-- name: Set GTK theme
-  become_user: joachim
-  dconf: key="/org/gnome/desktop/interface/gtk-theme" value="'Arc'"
+#- name: Set GTK theme
+#  become_user: joachim
+#  dconf: key="/org/gnome/desktop/interface/gtk-theme" value="'Arc'"
