@@ -1,11 +1,11 @@
 - name: Install packages
-  apt: name={{item}}
-  with_items:
-    - htop
-    - mc
-    - vlc
-    - vim
-    - chromium-browser
+  apt: name:[
+  'htop',
+  'mc',
+  'vlc',
+  'vim',
+  'chromium-browser',
+  ]
 #- name: Install packages
 #  pacman: name={{item}}
 #  with_items:
