@@ -1,10 +1,10 @@
 - name: Install packages
   apt: name:[
-  'htop',
-  'mc',
-  'vlc',
-  'vim',
-  'chromium-browser',
+  'htop'
+  'mc'
+  'vlc'
+  'vim'
+  'chromium-browser'
   ]
 #- name: Install packages
 #  pacman: name={{item}}
