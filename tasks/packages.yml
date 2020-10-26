@@ -6,7 +6,7 @@
     - vlc
     - vim
     - chromium-browser
-  ]
+  
 #- name: Install packages
 #  pacman: name={{item}}
 #  with_items:
